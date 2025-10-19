@@ -80,35 +80,7 @@ print(f"Tahmin: {knn.predict(X_test)}")  # Output: ['A']
 | Test (1 örnek) | O(n·d) | n: eğitim sayısı, d: boyut |
 | Test (m örnek) | O(m·n·d) | m: test sayısı |
 
-### 🎚️ k Parametresi Seçimi
-```python
-import matplotlib.pyplot as plt
 
-def plot_k_effect():
-    """k değerinin karar sınırına etkisi"""
-    k_values = [1, 5, 20, 50]
-    
-    fig, axes = plt.subplots(2, 2, figsize=(12, 10))
-    
-    for idx, k in enumerate(k_values):
-        ax = axes[idx // 2, idx % 2]
-        # ... plotting code ...
-        ax.set_title(f'k = {k}')
-        
-        if k == 1:
-            ax.text(0.5, -0.1, 'Overfitting!\nÇok karmaşık sınır', 
-                   ha='center', color='red', fontweight='bold')
-        elif k == 50:
-            ax.text(0.5, -0.1, 'Underfitting!\nÇok basit sınır', 
-                   ha='center', color='red', fontweight='bold')
-        else:
-            ax.text(0.5, -0.1, 'İyi denge ✓', 
-                   ha='center', color='green', fontweight='bold')
-    
-    plt.tight_layout()
-    plt.savefig('knn_k_effect.png', dpi=300, bbox_inches='tight')
-    plt.show()
-```
 
 ### 🎯 İnteraktif Demo
 ```python
